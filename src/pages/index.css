@@ -1,16 +1,6 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.font-lexend {
-  font-family: 'Lexend Variable', sans-serif;
-}
-.font-noto {
-  font-family: 'Noto Sans Syriac Variable', sans-serif;
-}
-.font-nabla {
-  font-family: 'Nabla Variable', system-ui;
-}
+  @tailwind components;
+  @tailwind utilities;
 
   @layer base {
     :root {
@@ -84,19 +74,3 @@
       @apply bg-background text-foreground;
     }
   }
-
-::view-transition-old(root){
-  animation: none;
-  mix-blend-mode: plus-lighter;
-}
-::view-transition-new(root) {
-
-}
-.dark::view-transition-old(root),
-.dark::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-/* .main-header {
-  view-transition-name: main-header;
-} */

@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './Layout.css'
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import { Button } from './components/ui/button';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { AlertCircle } from 'lucide-react';
 
 function Layout() {
-  const [count, setCount] = useState(0);
-  
 
   return (
     <>
-      <div>
-  
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Navbar></Navbar>
+      <div className='max-w-7xl mx-auto px-4 md:px-6 lg:px-8 xl:px-10 '>
+        
+        <Outlet></Outlet>
+        <Button>Click me</Button>
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>
+            Your session has expired. Please log in again.
+          </AlertDescription>
+        </Alert>
+
       </div>
-      <h1 className='font-bold'>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/Layout.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
