@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { flushSync } from 'react-dom';
-import { Button } from './ui/button';
 import { NavigationMenus } from './Nav';
 
 interface NavbarProps {
