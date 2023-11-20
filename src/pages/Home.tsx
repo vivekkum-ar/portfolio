@@ -1,14 +1,39 @@
 import Cards from '@/components/cards'
 import React from 'react'
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 interface HomeProps {
   // Add your prop types here
 }
 
 const Home: React.FC<HomeProps> = ({ }) => {
+
+  //GSAP Animations
+  useGSAP(() => {
+    gsap.from(".astrodivider", {
+      scrollTrigger: {
+        trigger: ".astrodivider",
+        start: "top center",
+        end: "bottom center",
+        scrub: true,
+        markers: true,
+      },
+      y: -500,
+      opacity: 0,
+      duration: 1,
+    });
+
+
+
+  });
+
   return (
     <>
     <div className="relative">
+
     <div className='h-96 dark:bgg bgg-light relative opacity-40'>
   <div className="flex flex-col justify-center items-center h-full border border-solid border-opacity-35">
     {/* <!-- Your content here --> */}
