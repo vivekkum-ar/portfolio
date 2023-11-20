@@ -1,18 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { flushSync } from 'react-dom';
 import { NavigationMenus } from './Nav';
+import { atom, useRecoilState } from 'recoil';
+import { dark_Theme } from '@/Recoil/store';
 
 interface NavbarProps {
   // Add your prop types here
 }
 
 const Navbar: React.FC<NavbarProps> = ({}) => {
-
+  
   /* ---------------------------------------------------------------------------------------------- */
   /*                            Code for dark mode toggle button in React                           */
   /* ---------------------------------------------------------------------------------------------- */
   const Ref = useRef<HTMLButtonElement>(null);
-  const [darkTheme, setdarkTheme] = useState(localStorage.getItem("dark-theme") == "true");
+  const [darkTheme, setdarkTheme] = useRecoilState(dark_Theme);
   const toggleDarkMode = async (darkTheme:boolean) => {
     if(!Ref.current || !document.startViewTransition) {
       setdarkTheme(!darkTheme);

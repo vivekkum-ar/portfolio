@@ -12,17 +12,20 @@ import '@fontsource-variable/lexend';
 import '@fontsource-variable/noto-sans-syriac';
 // Supports only weight 400
 import '@fontsource-variable/nabla';
+import { RecoilRoot } from 'recoil';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="Projects" element={<Projects />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <RecoilRoot>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="blogs" element={<Blogs />} />
+            <Route path="Projects" element={<Projects />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>,
+  </RecoilRoot>
 )
