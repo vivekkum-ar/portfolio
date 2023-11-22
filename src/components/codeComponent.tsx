@@ -27,26 +27,28 @@ const CodeComponent: React.FC<CodeComponentProps> = ({ language }) => {
             // Map over the previous state array
             return prevState.map((visible, index) => {
                 // Set the second tab to true and others to false
+                console.warn(visible);
                 return index === tab_id;
             });
         });
     };
     // const [codeProgress,setcodeProgress] = useState(0);
     var srcCode = ["//I Know React \n" + `
-    useGSAP(() => 
-            { gsap.from(".astrodivider", {
-                scrollTrigger: {
-                    trigger: ".astrodivider",
-                    start: "top center",
-                    end: "bottom center",
-                    scrub: true,
-                    markers: true,
-                },
-                y: -500,
-                opacity: 0,
-                duration: { 1}
-            });
-            `, `
+    import React from 'react';
+
+const Joke = () => {
+  return (
+    <div>
+      <h1>Why did the developer go broke?</h1>
+      <p>Because he used up all his cache!💾</p>
+      💸💸💸💸
+    </div>
+  );
+};
+
+export default Joke;
+            `, 
+            "//I Know HTML \n" +`
         <html lang="en">
         <head>
             <meta charset="UTF-8" />
@@ -60,32 +62,35 @@ const CodeComponent: React.FC<CodeComponentProps> = ({ language }) => {
             </body>
             </html>
             `,
-        `
-            @tailwind base;
-            @tailwind components;
-            @tailwind utilities;
-          
-            @layer base {
-              :root {
-                --background: 0 0% 100%;
-                --foreground: 222.2 84% 4.9%;
-          
-                --card: 0 0% 100%;
-                --card-foreground: 222.2 84% 4.9%;
-              }} 
+        
+        "//I Know Tailwind \n" +`
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+        
+        @layer base {
+          :root {
+            --background: hsl(120, 100%, 50%); /* Neon green */
+            --foreground: hsl(0, 100%, 50%); /* Neon red */
+        
+            --card: hsl(240, 100%, 50%); /* Neon blue */
+            --card-foreground: hsl(60, 100%, 50%); /* Neon yellow */
+          }
+        }
             `,
-        `
-            impressEmployer: function() {
-                console.log("Employer: So, why should we hire you?");
-                console.log("You: Well, I can talk to computers. Here, watch this:");
-                setTimeout(() => {
-                  console.log("Computer: Hello, world!");
-                  console.log("You: Impressed?");
-                  console.log("Employer: Very. Welcome aboard!");
-                }, 2000);
-              }
-            };
-            interviewer.impressEmployer();
+        
+        "//I Know Javascript \n" +`
+        const impressEmployer = () => {
+            console.log("👨‍💼Employer: So, why should we hire you?");
+            console.log("👨‍🎓You: Well, I can talk to computers. Here, watch this:");
+            setTimeout(() => {
+                console.log("💻Computer: Hello, world!");
+                console.log("👨‍🎓You: Impressed?");
+                console.log("👨‍💼Employer: Very. Welcome aboard!");
+            }, 2000);
+        };
+        
+        impressEmployer();
             `];
 
     var index = [0, 0, 0, 0];
@@ -208,7 +213,7 @@ const CodeComponent: React.FC<CodeComponentProps> = ({ language }) => {
                     <div className="h-96 w-20 flex  trigger-css"></div>
                     <div className="h-96 w-20 flex  trigger-js"></div>
                 </div>
-                <div className="relative top-0 hl-js border-4 border-green-500 max-w-screen-lg mx-auto shadow-xl mt-32 gsap-hl-js">
+                <div className="relative top-0 hl-js max-w-screen-lg mx-auto shadow-xl mt-32 gsap-hl-js">
                     <div className="container-hljs h-[25rem] dark:bg-gray-800 bg-gray-200">
                         <div className="row border-b-4 border-blue-500 bg-slate-900">
                             <div className="column left">
@@ -252,22 +257,22 @@ const CodeComponent: React.FC<CodeComponentProps> = ({ language }) => {
                                 </div>
                             </div>
                             <div className="h-full w-full p-0 relative">
-                                <pre className={`h-full w-full p-0 m-to-0 absolute top-0 left-0 border-4  ${tabVisible[0] ? "" : "hidden"}  code-block-js border-red-400`}>
+                                <pre className={`h-full w-full p-0 m-to-0 absolute top-0 left-0  ${tabVisible[0] ? "" : "hidden"}  code-block-js`}>
                                     <code className=" language-javascript code-from-here p-0"
                                         dangerouslySetInnerHTML={{ __html: Prism.highlight(`${code}`, Prism.languages.javascript, language) }}
                                     ></code>
                                 </pre>
-                                <pre className={`h-full w-full p-0 m-to-0 absolute top-0 left-0 border-4  ${tabVisible[1] ? "" : "hidden"}  code-block-css border-blue-400`}>
+                                <pre className={`h-full w-full p-0 m-to-0 absolute top-0 left-0  ${tabVisible[1] ? "" : "hidden"}  code-block-css`}>
                                     <code className=" language-javascript code-from-here p-0"
                                         dangerouslySetInnerHTML={{ __html: Prism.highlight(`${codeHtml}`, Prism.languages.javascript, language) }}
                                     ></code>
                                 </pre>
-                                <pre className={`h-full w-full p-0 m-to-0 absolute top-0 left-0 border-4  ${tabVisible[2] ? "" : "hidden"}  code-block-html border-green-400`}>
+                                <pre className={`h-full w-full p-0 m-to-0 absolute top-0 left-0  ${tabVisible[2] ? "" : "hidden"}  code-block-html`}>
                                     <code className=" language-javascript code-from-here p-0"
                                         dangerouslySetInnerHTML={{ __html: Prism.highlight(`${codeCss}`, Prism.languages.javascript, language) }}
                                     ></code>
                                 </pre>
-                                <pre className={`h-full w-full p-0 m-to-0 absolute top-0 left-0 border-4  ${tabVisible[3] ? "" : "hidden"} code-block-react border-yellow-400`}>
+                                <pre className={`h-full w-full p-0 m-to-0 absolute top-0 left-0  ${tabVisible[3] ? "" : "hidden"} code-block-react`}>
                                     <code className=" language-javascript code-from-here p-0"
                                         dangerouslySetInnerHTML={{ __html: Prism.highlight(`${codeJs}`, Prism.languages.javascript, language) }}
                                     ></code>
