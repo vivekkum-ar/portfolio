@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import AnimatedCursor from 'react-animated-cursor';
 import { dark_Theme } from './Recoil/store';
 import { useRecoilState } from 'recoil';
+import Footer from './components/footer';
 
 function Layout() {
   const [darkMode] = useRecoilState(dark_Theme);
@@ -38,6 +39,7 @@ function Layout() {
       <div className='max-w-7xl mx-auto px-4 md:px-6 lg:px-8 xl:px-10 '>
         <Outlet></Outlet>
       </div>
+        <Footer></Footer>
     </>
   )
 }

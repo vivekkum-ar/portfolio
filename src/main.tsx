@@ -2,21 +2,22 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Layout from './Layout.tsx'
 import './index.css'
-import Projects from './pages/Projects.tsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Blogs from './pages/Blogs.tsx'
-import Home from './pages/Home.tsx'
 // Supports weights 100-900
 import '@fontsource-variable/lexend';
 // Supports weights 100-900
 import '@fontsource-variable/noto-sans-syriac';
 // Supports only weight 400
 import '@fontsource-variable/nabla';
+import '@fontsource/pacifico';
 import { RecoilRoot } from 'recoil';
-import { Contact } from 'lucide-react'
+import Home from './pages/Home.tsx'
+import Blogs from './pages/Blogs.tsx'
+import Projects from './pages/Projects.tsx'
 import About from './pages/About.tsx'
 import Freelance from './pages/Freelancework.tsx'
 import Resume from './pages/Resume.tsx'
+import Contact from './pages/Contact.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <RecoilRoot>

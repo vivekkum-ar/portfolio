@@ -11,7 +11,7 @@ interface TimelineCardProps {
 const TimelineCard: React.FC<TimelineCardProps> = (props) => {
     const { Title, Description } = props; //Destructuring Title, Description = props = title, description(from parent)
     return (
-        <section className=" md:h-84 my-32">
+        <section className=" md:h-84 mt-32">
             <div className="parent-timeline-title flex flex-col place-content-center dark:text-white bg-white dark:bg-inherit overflow-hidden">
                 {/* <div className="timeline-title -trigger absolute border-lg border-red-500">
         </div> */}
@@ -38,7 +38,7 @@ const TimelineCard: React.FC<TimelineCardProps> = (props) => {
                 {/* <Atropos className="py-0 mx-auto max-w-screen-xl row-span-2 sm:row-span-0 sm:col-span-2" shadow={false} commonOrigin={false}> */}
                 <div className="py-0 mx-auto max-w-screen-xl row-span-2 sm:row-span-0 sm:col-span-2">
                     <div data-atropos-offset="-1" className="">
-                        <div className="dark:text-white md:my-4 py-4 md:p-4 px-2">
+                        <div className="dark:text-white md:my-4">
                             {/* <a href="#" data-atropos-offset="10" className="hidden bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-blue-400 mb-2">
               <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />

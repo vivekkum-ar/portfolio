@@ -69,7 +69,7 @@ export function NavigationMenus() {
                 <ListItem href="/Resume" title="Resume" icon={<Icon icon="ph:download-bold" className="inline-flex mr-1" width="20" height="20"/>}>
                   View my professional resume and work history.
                 </ListItem>
-                <ListItem href="#projects" title="Projects" icon={<Icon icon="ion:desktop-outline" className="inline-flex mr-1" width="20" height="20"/>}>
+                <ListItem href="/#projects-ex" title="Projects" icon={<Icon icon="ion:desktop-outline" className="inline-flex mr-1" width="20" height="20"/>}>
                   Explore the projects I've worked on and developed.
                 </ListItem>
               </li>

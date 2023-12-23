@@ -11,6 +11,12 @@
 .font-nabla {
   font-family: 'Nabla Variable', system-ui;
 }
+.font-pacifico {
+  font-family: 'Pacifico', cursive;
+}
+html {
+  scroll-behavior: smooth;
+}
 
   @layer base {
     :root {

@@ -6,6 +6,7 @@ import CodeComponent from '@/components/codeComponent';
 import Skills from '@/components/Skills';
 import SkillsRev from '@/components/SkillsRev';
 import TimelineCard from '@/components/timelineCard';
+import Contact from './Contact';
 
 gsap.registerPlugin(useGSAP);
 
@@ -81,6 +82,7 @@ const Home: React.FC<HomeProps> = ({ }) => {
 
         <Cards></Cards>
         <TimelineCard Title={'Experience'} Description={''}></TimelineCard>
+        <Contact Title='Get in Touch'></Contact>
       </div>
     </>
   )

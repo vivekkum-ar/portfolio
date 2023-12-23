@@ -93,7 +93,7 @@ const [AnimDirection, setAnimDirection] = useState(true);
     <div className="container mx-auto px-8 2xl:px-32 mt-32 font-lexend">
       {/* <h2 className="text-3xl font-semibold tracking-tight leading-normal">Projects I’m the most proud of</h2> */}
       <h1 className="font-lexend pt-32 mb-16 font-normal text-7xl w-full text-center">
-        <span id='projects' className="bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 from-white to-blue-800  dark:to-white w-full">
+      <span id='projects-ex' className="bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 from-white to-blue-800  dark:to-white w-full">
           Projects
         </span>
         <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-white to-blue-800 w-full"><br />
