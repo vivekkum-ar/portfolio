@@ -26,7 +26,7 @@ const CodeComponent: React.FC<CodeComponentProps> = ({ language }) => {
             // Map over the previous state array
             return prevState.map((visible, index) => {
                 // Set the second tab to true and others to false
-                console.warn(visible);
+                // console.warn(visible);
                 return index === tab_id;
             });
         });
@@ -148,7 +148,7 @@ export default Joke;
                 // markers: true,
                 fastScrollEnd: true,
                 onUpdate: (self) => {
-                    console.log("Progress: 😎", self.progress, "Direction⬅", self.direction);
+                    // console.log("Progress: 😎", self.progress, "Direction⬅", self.direction);
                     typeWriterEffect(self.progress, self.direction, 0, srcCode[0]);
                 },
             },
@@ -162,7 +162,7 @@ export default Joke;
                 scrub: true,
                 fastScrollEnd: true,
                 onUpdate: (self) => {
-                    console.log("Progress: 😎", self.progress, "Direction⬅", self.direction);
+                    // console.log("Progress: 😎", self.progress, "Direction⬅", self.direction);
                     typeWriterEffect(self.progress, self.direction, 1, srcCode[1]);
                 },
             },
@@ -176,7 +176,7 @@ export default Joke;
                 scrub: true,
                 fastScrollEnd: true,
                 onUpdate: (self) => {
-                    console.log("Progress: 😎", self.progress, "Direction⬅", self.direction);
+                    // console.log("Progress: 😎", self.progress, "Direction⬅", self.direction);
                     typeWriterEffect(self.progress, self.direction, 2, srcCode[2]);
                 },
             },
@@ -190,7 +190,7 @@ export default Joke;
                 scrub: true,
                 fastScrollEnd: true,
                 onUpdate: (self) => {
-                    console.log("Progress: 😎", self.progress, "Direction⬅", self.direction);
+                    // console.log("Progress: 😎", self.progress, "Direction⬅", self.direction);
                     typeWriterEffect(self.progress, self.direction, 3, srcCode[3]);
                 },
             },

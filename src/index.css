@@ -14,9 +14,9 @@
 .font-pacifico {
   font-family: 'Pacifico', cursive;
 }
-html {
+/* html {
   scroll-behavior: smooth;
-}
+} */
 
   @layer base {
     :root {

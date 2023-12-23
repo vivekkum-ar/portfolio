@@ -1,7 +1,7 @@
 {
   "hosting": {
-    "site": "kumarvivek",
-    "public": "dist",
+    "source": ".",
+    "site": "kumar-vivek",
     "ignore": [
       "firebase.json",
       "**/.*",

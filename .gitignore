@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# loaded in all cases
+.env
+# loaded in all cases, ignored by git
+.env.local
+# only loaded in specified mode
+.env.[mode]
+# only loaded in specified mode, ignored by git
+.env.[mode].local

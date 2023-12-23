@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
+  // CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -27,6 +27,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
+import emailjs from '@emailjs/browser';
 
 interface ContactProps {
   // Add your prop types here
@@ -35,6 +36,26 @@ interface ContactProps {
 }
 
 const Contact: React.FC<ContactProps> = ({ Title, Description }) => {
+  /* ------------------------------------- Initialize EmailJs ------------------------------------- */
+  useEffect(() => {
+    emailjs.init({
+      publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      // Do not allow headless browsers
+      blockHeadless: true,
+      blockList: {
+        // Block the suspended emails
+        list: ['foo@emailjs.com', 'bar@emailjs.com'],
+        // The variable contains the email address
+        watchVariable: 'userEmail',
+      },
+      limitRate: {
+        // Set the limit rate for the application
+        id: 'app',
+        // Allow 1 request per 10s = 10000ms
+        throttle: 10000,
+      },
+    });
+  },[]);
   useGSAP(() => {
     gsap.set(".gsap-clip-animation-target", {clipPath: 'circle(1% at 50% 50%)'});
     gsap.to(".gsap-clip-animation-target", {
@@ -81,8 +102,23 @@ const Contact: React.FC<ContactProps> = ({ Title, Description }) => {
   })
   /* ---------------------------------- 3. Define submit handler ---------------------------------- */
   function onSubmit(values: z.infer<typeof formSchema>) {
-
-    console.log(values)
+    console.log(values);
+    var templateParams = {
+      userEmail: values.email,
+      userPhone: values.phone,
+      userMessage: values.message
+    };
+    if(values.email && values.message) {
+      emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, templateParams)
+      .then((response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          alert(`SUCCESS! - ${response.status} - ${response.text}`);
+        },
+        (error) => {
+          console.log('FAILED...', error);
+          alert(`FAILED... - ${error}`);
+        },);
+    }
   }
   return (
     <>
