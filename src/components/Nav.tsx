@@ -14,85 +14,87 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Link } from "react-router-dom"
 
-const components: { title: string; href: string; description: string }[] = [
+const components: { title: string; href: string; description: string ; icon:any}[] = [
   {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+    title: "Technologies",
+    href: "#tech",
+    description: "Overview of the technologies and tools I use in my projects.",
+    icon:"gridicons:science"
   },
   {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
+    title: "Projects",
+    href: "#projects",
+    description: "A showcase of the projects I've worked on and developed.",
+    icon:"ion:desktop-outline"
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    title: "Experience",
+    href: "#experience",
+    description: "Details of my professional experience and career milestones.",
+    icon:"material-symbols:work-history"
   },
   {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
+    title: "Freelance Work",
+    href: "/freelance",
+    description: "Insights and stories from my freelance work and projects.",
+    icon:"tabler:free-rights"
   },
   {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+    title: "Blogs",
+    href: "/blogs",
+    description: "Articles, tutorials, and insights on various topics.",
+    icon:"fa6-solid:blog"
   },
   {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+    title: "Contact",
+    href: "/contact",
+    description: "Get in touch with me.",
+    icon:"subway:call-4"
   },
 ]
 
+
 export function NavigationMenus() {
   return (
-    <NavigationMenu className="font-noto">
+    <NavigationMenu className="font-noto ">
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+          <NavigationMenuTrigger><Icon icon="material-symbols:person" width="20" height="20" className="mb-1.5 me-1" />About me</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[1fr_.75fr]">
+              <li>
+                <ListItem href="/About" title={"About me"} icon={<Icon icon="icon-park-twotone:me" className="inline-flex mr-1" width="20" height="20"/>}>
+                  Learn more about my background and experience.
+                </ListItem>
+                <ListItem href="/Resume" title="Resume" icon={<Icon icon="ph:download-bold" className="inline-flex mr-1" width="20" height="20"/>}>
+                  View my professional resume and work history.
+                </ListItem>
+                <ListItem href="#projects" title="Projects" icon={<Icon icon="ion:desktop-outline" className="inline-flex mr-1" width="20" height="20"/>}>
+                  Explore the projects I've worked on and developed.
+                </ListItem>
+              </li>
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
                   <a
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                     href="/"
                   >
-                    <Icon icon="flowbite:search-solid h-6 w-6"  style={{color: "white"}} />
+                    <img src="/images/logo-fav.ico" className="outline-1 outline outline-slate-700 shadow-lg rounded-full h-full w-12 sm:h-12" alt="Vivek's Profile" />
 
                     <div className="mb-2 mt-4 text-lg font-medium">
-                      shadcn/ui
+                      Vivek Kumar
                     </div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components that you can copy and
-                      paste into your apps. Accessible. Customizable. Open
-                      Source.
+                      I create interactive, visually appealing web interfaces using HTML, CSS, and JavaScript technologies.
                     </p>
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuTrigger><Icon icon="clarity:vmw-app-line" width="20" height="20" className="mb-1.5 me-1"/>Sections</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
@@ -100,6 +102,7 @@ export function NavigationMenus() {
                   key={component.title}
                   title={component.title}
                   href={component.href}
+                  icon={<Icon icon={component.icon} className="inline-flex mr-1" width="18" height="18"/>}
                 >
                   {component.description}
                 </ListItem>
@@ -108,9 +111,10 @@ export function NavigationMenus() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link to="/docs">
+          <Link to="/contact">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
+            <Icon icon="mingcute:phone-call-fill" width="20" height="20" className="mb-1.5 me-1" />
+              Contact
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
@@ -122,25 +126,29 @@ export function NavigationMenus() {
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+>(({ className, title,icon,href, children, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
-        <a
+        <Link
           ref={ref}
+          to={href || ""}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
+
+
+          <div className="text-sm font-medium leading-none">{icon}{title}</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-        </a>
+        </Link>
       </NavigationMenuLink>
     </li>
   )
 })
 ListItem.displayName = "ListItem"
+

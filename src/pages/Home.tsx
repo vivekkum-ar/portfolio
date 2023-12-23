@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import CodeComponent from '@/components/codeComponent';
 import Skills from '@/components/Skills';
 import SkillsRev from '@/components/SkillsRev';
+import TimelineCard from '@/components/timelineCard';
 
 gsap.registerPlugin(useGSAP);
 
@@ -57,12 +58,10 @@ const Home: React.FC<HomeProps> = ({ }) => {
           </div>
         </div>
         <div className="astrodivider mx-auto mt-32 scale-150"><div className="astrodividermask"></div><span className='text-blue-500 dark:bg-slate-800 bg-slate-200 text-2xl'><i>&#10038;</i></span></div>
-        {/* <div className="h-40 gradient-to-light-180 w-full p-5 flex flex-row justify-center items-center -translate-y-10">
-    <div className="divider h-2 w-[30%] bg-gray-500"></div>
-  </div> */}
+        
 <div className="flex flex-row items-center">
   <div className="flex flex-col">
-<span className="flex text-5xl font-lexend bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-white to-blue-800 w-full"><br />
+<span id='tech' className="flex text-5xl font-lexend pb-4 bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-slate-200 to-blue-800 w-full"><br />
                 Technologies i work with
               </span>
 
@@ -80,8 +79,8 @@ const Home: React.FC<HomeProps> = ({ }) => {
 
         <CodeComponent language={'javascript'} />
 
-        {/* <div className="p-8 sm:py-12 relative z-20 h-full flex flex-col"><div className="flex flex-col sm:flex-row gap-3 justify-between"><h3 className="text-4xl font-semibold">Slant it</h3></div><p className="prose text-gray-200/60 font-medium text-sm my-8 leading-[1.8] tracking-wide drop-shadow">Having built so many products, I looked for ways to make videos of my products that I could post online. Screen recordings worked, but they weren’t catchy enough on social media. And that’s why I built Slant it!<br /><br />Slant it is an easy-to-use 3D product video maker from simple screen recordings. It has various features including smart music beat detection, dozens of 3D animations, and more spread across free and pro plans.</p><div className="flex justify-between mt-auto"><a className="inline-flex items-center gap-1 group/button rounded-full hover:scale-105 focus:outline-none transition ring-offset-gray-900 bg-gray-50 text-gray-950 shadow-xl shadow-black/20 hover:bg-gray-300 focus:ring-1 ring-gray-300 focus:ring-offset-2 text-sm font-medium px-4 py-2" href="https://slantit.app" target="_blank" >Liv <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 group-hover/button:translate-x-px group-hover/button:-translate-y-px transition-transform"><path d="M17 7l-10 10" /><path d="M8 7l9 0l0 9" /></svg></a></div></div> */}
         <Cards></Cards>
+        <TimelineCard Title={'Experience'} Description={''}></TimelineCard>
       </div>
     </>
   )

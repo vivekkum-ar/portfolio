@@ -6,16 +6,17 @@ import { dark_Theme } from './Recoil/store';
 import { useRecoilState } from 'recoil';
 
 function Layout() {
-  const [darkMode,setdarkMode] = useRecoilState(dark_Theme);
+  const [darkMode] = useRecoilState(dark_Theme);
   return (
     <>
       <AnimatedCursor
-      innerSize={20}
+      innerSize={10}
       outerSize={40}
       color={darkMode ? '255, 255, 255' : '0, 0, 0'}
       outerAlpha={0.2}
       innerScale={1}
       outerScale={2}
+      
       clickables={[
         'a',
         'input[type="text"]',
@@ -28,7 +29,9 @@ function Layout() {
         'textarea',
         'button',
         '.link'
-      ]}
+      ]
+    }
+    
     />
       <Navbar></Navbar>
 

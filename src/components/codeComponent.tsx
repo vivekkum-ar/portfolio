@@ -11,7 +11,6 @@ gsap.registerPlugin(TextPlugin);
 import Prism from "prismjs";
 import "prismjs/themes/prism-vsc-dark-plus.css";
 import { Icon } from '@iconify/react';
-import colors from 'tailwindcss/colors';
 interface CodeComponentProps {
     language: string;
 }
@@ -134,7 +133,7 @@ export default Joke;
                 end: "bottom+=290% top",
                 scrub: true,
                 pin: true,
-                markers: true,
+                // markers: true,
                 fastScrollEnd: true,
             },
             duration: 1,
@@ -146,7 +145,7 @@ export default Joke;
                 end: "bottom top",
                 scrub: true,
                 // pin: true,
-                markers: true,
+                // markers: true,
                 fastScrollEnd: true,
                 onUpdate: (self) => {
                     console.log("Progress: 😎", self.progress, "Direction⬅", self.direction);

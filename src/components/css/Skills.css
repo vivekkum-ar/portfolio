@@ -77,3 +77,71 @@
     max-width: 100px;
     scale: 0.8;
 }
+
+@keyframes moveAndFade2 {
+    0% {
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+    }
+    100% {
+      left: 60px;
+      bottom: 100px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes moveAndFade1 {
+    0% {
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+    }
+    100% {
+      left: 30px;
+      bottom: 60px;
+      opacity: 1;
+    }
+  }
+@keyframes moveAndFade2-rev {
+    0% {
+        left: 60px;
+        bottom: 100px;
+        opacity: 1;
+    }
+    100% {
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+    }
+  }
+
+  @keyframes moveAndFade1-rev {
+      0% {
+          left: 30px;
+          bottom: 60px;
+          opacity: 1;
+        }
+      100% {
+          left: 0;
+          bottom: 0;
+          opacity: 0;
+        }
+  }
+  
+  .animate-move-and-fade2 {
+    position: absolute; /* Ensure the element is positioned */
+    animation: moveAndFade2 0.3s ease-in forwards; /* Adjust timing and easing as needed */
+  }
+  .animate-move-and-fade1 {
+    position: absolute; /* Ensure the element is positioned */
+    animation: moveAndFade1 0.3s ease-in forwards; /* Adjust timing and easing as needed */
+  }
+  .animate-move-and-fade2-rev {
+    position: absolute; /* Ensure the element is positioned */
+    animation: moveAndFade2-rev 0.3s ease-out forwards; /* Adjust timing and easing as needed */
+  }
+  .animate-move-and-fade1-rev {
+    position: absolute; /* Ensure the element is positioned */
+    animation: moveAndFade1-rev 0.3s ease-out forwards; /* Adjust timing and easing as needed */
+  }
