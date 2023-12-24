@@ -35,7 +35,8 @@ interface ContactProps {
   Description?: string
 }
 
-const Contact: React.FC<ContactProps> = ({ Title, Description }) => {
+const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
+  console.log(Title, Description);
   /* ------------------------------------- Initialize EmailJs ------------------------------------- */
   useEffect(() => {
     emailjs.init({
@@ -57,7 +58,7 @@ const Contact: React.FC<ContactProps> = ({ Title, Description }) => {
     });
   },[]);
   useGSAP(() => {
-    if(Title && Description) {
+    if(Title == "" && Description == "") return;
     gsap.set(".gsap-clip-animation-target", {clipPath: 'circle(1% at 50% 50%)'});
     gsap.to(".gsap-clip-animation-target", {
       scrollTrigger: {
@@ -77,7 +78,6 @@ const Contact: React.FC<ContactProps> = ({ Title, Description }) => {
       duration: 1,
       clipPath: 'circle(100% at 50% 50%)',
     });
-  }
   });
   // A regex for phone number
   const phoneRegex = new RegExp(
@@ -144,8 +144,9 @@ const Contact: React.FC<ContactProps> = ({ Title, Description }) => {
       >
         <div className="w-2/5 h-[80vh] opacity-80 rounded-xl shadow-xl translate-x-24 z-10 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 dark:from-slate-500 dark:via-slate-400 dark:to-slate-300">
         </div>
-        <img src="/images/contactus.svg" className='w-[60vw] h-[60vh] absolute -left-12 z-20' alt="" />
-        <img src="/images/contactus.svg" className='w-[50vw] h-[50vh] absolute right-0 -z-20' alt="" />
+        <img src="/images/contactus.svg" className='lazy w-[60vw] h-[60vh] absolute -left-12 z-20' loading='eager' alt="" />
+
+        <img src="/images/contactus.svg" className='lazy w-[50vw] h-[50vh] absolute right-0 -z-20' alt="" />
         <Card className="shadow-xl border-2 border-gray-300 font-lexend w-3/6 z-20 me-32">
           <CardHeader>
             <CardTitle className="flex text-5xl font-lexend bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-slate-200 to-blue-800 w-full">
