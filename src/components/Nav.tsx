@@ -16,20 +16,20 @@ import { Link } from "react-router-dom"
 
 const components: { title: string; href: string; description: string ; icon:any}[] = [
   {
-    title: "Technologies",
-    href: "#tech",
+    title: "Technologies i use",
+    href: "/#tech",
     description: "Overview of the technologies and tools I use in my projects.",
     icon:"gridicons:science"
   },
   {
     title: "Projects",
-    href: "#projects",
+    href: "/#projects",
     description: "A showcase of the projects I've worked on and developed.",
     icon:"ion:desktop-outline"
   },
   {
     title: "Experience",
-    href: "#experience",
+    href: "/#experience",
     description: "Details of my professional experience and career milestones.",
     icon:"material-symbols:work-history"
   },
@@ -69,7 +69,7 @@ export function NavigationMenus() {
                 <ListItem href="/Resume" title="Resume" icon={<Icon icon="ph:download-bold" className="inline-flex mr-1" width="20" height="20"/>}>
                   View my professional resume and work history.
                 </ListItem>
-                <ListItem href="/#projects-ex" title="Projects" icon={<Icon icon="ion:desktop-outline" className="inline-flex mr-1" width="20" height="20"/>}>
+                <ListItem onClick={() => { const element = document.getElementById('projects'); element?.scrollIntoView({ behavior: 'smooth' }); }} title="Projects" icon={<Icon icon="ion:desktop-outline" className="inline-flex mr-1" width="20" height="20"/>}>
                   Explore the projects I've worked on and developed.
                 </ListItem>
               </li>
@@ -133,6 +133,7 @@ const ListItem = React.forwardRef<
         <Link
           ref={ref}
           to={href || ""}
+          onClick={() => { const element = document.querySelector(`${href}`); element?.scrollIntoView({ behavior: 'smooth' }); }}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
