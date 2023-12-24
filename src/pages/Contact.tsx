@@ -57,6 +57,7 @@ const Contact: React.FC<ContactProps> = ({ Title, Description }) => {
     });
   },[]);
   useGSAP(() => {
+    if(Title && Description) {
     gsap.set(".gsap-clip-animation-target", {clipPath: 'circle(1% at 50% 50%)'});
     gsap.to(".gsap-clip-animation-target", {
       scrollTrigger: {
@@ -76,6 +77,7 @@ const Contact: React.FC<ContactProps> = ({ Title, Description }) => {
       duration: 1,
       clipPath: 'circle(100% at 50% 50%)',
     });
+  }
   });
   // A regex for phone number
   const phoneRegex = new RegExp(

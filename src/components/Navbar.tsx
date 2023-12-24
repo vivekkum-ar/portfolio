@@ -60,7 +60,7 @@ console.log("outside")
 
 
   return (
-  <nav className="main-header bg-inherit px-4 lg:px-6 pb-4 pt-2 mx-auto max-w-screen-xl">
+  <nav className="main-header bg-inherit px-4 lg:px-6 pb-4 pt-2 mx-auto max-w-screen-xl relative z-50">
     <div className="flex flex-row justify-between items-center">
 
       {/* <div className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-full text-sm px-5 py-2 text-center me-2 mb-2"> */}

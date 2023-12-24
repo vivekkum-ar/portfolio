@@ -47,7 +47,7 @@ const components: { title: string; href: string; description: string ; icon:any}
   },
   {
     title: "Contact",
-    href: "/contact",
+    href: "contact",
     description: "Get in touch with me.",
     icon:"subway:call-4"
   },
@@ -93,10 +93,10 @@ export function NavigationMenus() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="">
           <NavigationMenuTrigger><Icon icon="clarity:vmw-app-line" width="20" height="20" className="mb-1.5 me-1"/>Sections</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+          <NavigationMenuContent className="">
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               {components.map((component) => (
                 <ListItem
                   key={component.title}
@@ -140,8 +140,6 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-
-
           <div className="text-sm font-medium leading-none">{icon}{title}</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
