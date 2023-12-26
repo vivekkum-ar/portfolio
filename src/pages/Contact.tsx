@@ -28,6 +28,7 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 import emailjs from '@emailjs/browser';
+import { toast } from "sonner"
 
 interface ContactProps {
   // Add your prop types here
@@ -36,7 +37,7 @@ interface ContactProps {
 }
 
 const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
-  console.log(Title, Description);
+  // console.log(Title, Description);
   /* ------------------------------------- Initialize EmailJs ------------------------------------- */
   useEffect(() => {
     emailjs.init({
@@ -88,10 +89,10 @@ const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
     email: z.string().email({
       message: "Please enter a valid email address.",
     }),
-    phone: z.string().regex(phoneRegex, 'Invalid Number!').optional().or(z.literal('')),
     message: z.string().max(250, {
       message: "Message should be less than 250 characters."
     }),
+    phone: z.string().regex(phoneRegex, 'Invalid Number!').optional().or(z.literal('')),
   })
   /* --------------------------------------- 2. Define Form --------------------------------------- */
   const form = useForm<z.infer<typeof formSchema>>({
@@ -111,15 +112,27 @@ const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
       userMessage: values.message
     };
     if(values.email && values.message) {
-      // emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, templateParams)
-      // .then((response) => {
-          console.log('SUCCESS!', "response.status", "response.text");
-          alert(`SUCCESS! - ${"response.status"} - ${"response.text"}`);
-        // },
-        // (error) => {
+      emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, templateParams)
+      .then((response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          // toast(`SUCCESS! - ${"response.status"} - ${"response.text"}`);
+          toast("Thank you for contacting me!", 
+          { 
+            description: `We have received your request! We will get back to you in < 24Hr.` ,
+            classNames: {toast:"group-[.toaster]:border-green-500 group-[.toaster]:border-2"},
+            // position: 'top-right',         
+          });
+          
+        },
+        (error) => {
           // console.log('FAILED...', error);
-          // alert(`FAILED... - ${error}`);
-        // },);
+          toast("Request failed", 
+          { 
+            description: `Error: ${error}` ,
+            classNames: {toast:"group-[.toaster]:border-red-500 group-[.toaster]:border-2"},
+            // position: 'top-right',         
+          });
+        },);
     }
   }
   return (
@@ -200,10 +213,8 @@ const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
                     <FormItem>
                       <FormLabel>Message</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="What do you want to talk about?" {...field} />
+                        <Textarea placeholder="What do you want to talk about?" {...field} required/>
                       </FormControl>
-                      <FormDescription>
-                      </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}

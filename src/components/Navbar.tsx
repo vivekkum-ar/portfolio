@@ -47,7 +47,7 @@ console.log("outside")
 
   }
   useEffect(() => {
-    console.log("inside e");
+    // console.log("inside e");
 
     if (darkTheme == false) {
       document.documentElement.classList.remove('dark');

@@ -18,7 +18,6 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
 import { Separator } from "@/components/ui/separator"
-import { toast } from "sonner"
 interface CardsProps {
   // Add your prop types here
 }

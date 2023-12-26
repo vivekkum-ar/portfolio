@@ -21,3 +21,7 @@ export const codeTextJs = atom({
     key: 'codeTextJs', // unique ID (with respect to other atoms/selectors)
     default: ``, // default value (aka initial value)
   });
+export const loaderStatus = atom({
+    key: 'loaderStatus', // unique ID (with respect to other atoms/selectors)
+    default: false, // default value (aka initial value)
+  });
