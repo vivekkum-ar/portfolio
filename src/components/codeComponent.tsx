@@ -26,7 +26,7 @@ const CodeComponent: React.FC<CodeComponentProps> = ({ language }) => {
             // Map over the previous state array
             return prevState.map((visible, index) => {
                 // Set the second tab to true and others to false
-                // console.warn(visible);
+                console.warn(visible);
                 return index === tab_id;
             });
         });

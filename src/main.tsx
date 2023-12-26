@@ -18,6 +18,9 @@ import About from './pages/About.tsx'
 import Freelance from './pages/Freelancework.tsx'
 import Resume from './pages/Resume.tsx'
 import Contact from './pages/Contact.tsx'
+import PrivacyPage from './pages/legal/Privacy.tsx'
+import TermsPage from './pages/legal/Terms.tsx'
+import NoPage from './pages/NoPage.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <RecoilRoot>
@@ -26,12 +29,16 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="home" element={<Home />} />
             <Route path="blogs" element={<Blogs />} />
             <Route path="Projects" element={<Projects />} />
             <Route path="freelance" element={<Freelance />} />
             <Route path="contact" element={<Contact />} />
             <Route path="about" element={<About />} />
             <Route path="resume" element={<Resume />} />
+            <Route path="legal/privacy" element={<PrivacyPage />} />
+            <Route path="legal/terms" element={<TermsPage />} />
+            <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

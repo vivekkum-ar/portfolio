@@ -50,7 +50,7 @@ const Home: React.FC<HomeProps> = ({ }) => {
           <div className="flex flex-col justify-center items-center h-full ">
             <h1 className="font-lexend font-normal text-7xl w-full text-center">
               <span className="bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 from-white to-blue-800  dark:to-white w-full">
-                Hello, I am Vivek
+                Hello, I am <p className='font-pacifico inline-flex text-blue-400'>Vivek</p>
               </span>
               <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-white to-blue-800 w-full"><br />
                 Frontend Developer
