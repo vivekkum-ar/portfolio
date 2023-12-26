@@ -9,8 +9,8 @@ interface SkillsRevProps {
 const SkillsRev: React.FC<SkillsRevProps> = ({skills}) => {
     return (
         <>
-         <div className='body-div'>
-        <div className="scrollR">
+         <div className='body-div ms-0 '>
+        <div className="scrollR w-full">
           <div>
             {skills.map((skill,index) => {
               return (

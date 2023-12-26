@@ -12,7 +12,7 @@ import '@fontsource-variable/nabla';
 import '@fontsource/pacifico';
 import { RecoilRoot } from 'recoil';
 import Home from './pages/Home.tsx'
-import Blogs from './pages/Blogs.tsx'
+// import Blogs from './pages/Blogs.tsx'
 import Projects from './pages/Projects.tsx'
 import About from './pages/About.tsx'
 import Freelance from './pages/Freelancework.tsx'
@@ -30,7 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
-            <Route path="blogs" element={<Blogs />} />
+            {/* <Route path="blogs" element={<Blogs />} /> */}
             <Route path="Projects" element={<Projects />} />
             <Route path="freelance" element={<Freelance />} />
             <Route path="contact" element={<Contact />} />

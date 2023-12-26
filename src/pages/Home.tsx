@@ -52,26 +52,27 @@ const Home: React.FC<HomeProps> = ({ }) => {
               <span className="bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 from-white to-blue-800  dark:to-white w-full">
                 Hello, I am <p className='font-pacifico inline-flex text-blue-400'>Vivek</p>
               </span>
-              <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-white to-blue-800 w-full"><br />
+              <span className="text-3xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-white to-blue-800 w-full"><br />
                 Frontend Developer
               </span>
             </h1>
           </div>
         </div>
-        <div className="astrodivider mx-auto mt-32 scale-150"><div className="astrodividermask"></div><span className='text-blue-500 dark:bg-slate-800 bg-slate-200 text-2xl'><i>&#10038;</i></span></div>
+        <div className="astrodivider mx-auto lg:mt-18 lg:scale-150"><div className="astrodividermask"></div><span className='text-blue-500 dark:bg-slate-800 bg-slate-200 text-2xl'><i>&#10038;</i></span>
+        </div>
         
-<div className="flex flex-row items-center">
+<div className="flex lg:flex-row flex-col items-center">
   <div className="flex flex-col">
-<span id='tech' className="flex text-5xl font-lexend pb-4 bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-slate-200 to-blue-800 w-full"><br />
+<span id='tech' className="flex text-3xl mt-36 lg:mt-0 lg:text-5xl font-lexend pb-4 bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-slate-200 to-blue-800 w-full"><br />
                 Technologies i work with
               </span>
 
-  <div className="astrodivider pt-6 px-16 scale-150"><div className="astrodividermask"></div></div>
+  <div className="pt-2 lg:mx-24 lg:scale-150"><div className="astrodividermask"></div></div>
 
 <span className="flex text-justify pr-6 text-lg font-lexend dark:text-slate-500  text-gray-800 w-full"><br />Seasoned in React, Next.js, and TailwindCSS, with a command over TypeScript, Node.js, and MongoDB. Proficient in Agile, CI/CD, and adept with collaborative platforms like JIRA and Figma. Let's innovate together!
 </span>
               </div>
-<div className="font-lexend text-md font-semibold my-32 dark:text-white text-white">
+<div className="font-lexend text-md font-semibold lg:my-32 dark:text-white text-white max-w-[350px] lg:max-w-screen-sm">
         <Skills skills={skills.slice(0,9)}></Skills>
         <SkillsRev skills={skills.slice(9,18)}></SkillsRev>
         <Skills skills={skills.slice(18,-1)}></Skills>

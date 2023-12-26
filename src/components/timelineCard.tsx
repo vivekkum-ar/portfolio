@@ -15,7 +15,7 @@ const TimelineCard: React.FC<TimelineCardProps> = (props) => {
             <div className="parent-timeline-title flex flex-col place-content-center dark:text-white bg-white dark:bg-inherit overflow-hidden">
                 {/* <div className="timeline-title -trigger absolute border-lg border-red-500">
         </div> */}
-                <h1 className="font-lexend font-normal text-7xl w-full text-center">
+                <h1 className="font-lexend font-normal text-5xl lg:text-7xl w-full text-center">
                     <span id='experience' className="bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 from-white to-blue-800  dark:to-white w-full">
                         {Title}
                     </span>
@@ -29,9 +29,9 @@ const TimelineCard: React.FC<TimelineCardProps> = (props) => {
 
                 {/* <p className="timeline-title  mb-8 px-4 md:px-20 text-center text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 font-bg">{Description}</p> */}
             </div>
-            <div className="overflow-visible  grid grid-rows-3 sm:grid-rows-1 gap-y-0 px-5 sm:grid-cols-4 sm:gap-x-8">
+            <div className="overflow-visible  grid grid-rows-1 sm:grid-rows-1 px-5 sm:grid-cols-4 sm:gap-x-8">
 
-                <div style={{ backgroundImage: `url("./images/website-undraw.svg")` }} className="md:translate-x-12 md:translate-y-12 bg-contain md:bg-contain border-b-2 border-gray-400 sm:border-0 bg-no-repeat bg-bottom md:bg-top row-span-0 sm:row-span-0 sm:col-span-1">
+                <div style={{ backgroundImage: `url("./images/website-undraw.svg")` }} className="hidden lg:block md:translate-x-12 md:translate-y-12 bg-contain md:bg-contain border-b-2 border-gray-400 sm:border-0 bg-no-repeat bg-bottom md:bg-top row-span-0 sm:row-span-0 sm:col-span-1">
                 </div>
 
 

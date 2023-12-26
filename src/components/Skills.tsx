@@ -9,8 +9,8 @@ interface SkillsProps {
 const Skills: React.FC<SkillsProps> = ({skills}) => {
     return (
         <>
-         <div className='body-div'>
-        <div className="scroll">
+         <div className='body-div ms-0 '>
+        <div className="scroll w-full">
           <div>
             {skills.map((skill,index) => {
               return (

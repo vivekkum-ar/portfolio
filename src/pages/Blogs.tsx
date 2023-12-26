@@ -5,6 +5,7 @@ interface BlogsProps {
 }
 
 const Blogs: React.FC<BlogsProps> = ({}) => {
+  
   return (
     <div>Blogs</div>
   )

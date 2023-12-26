@@ -33,15 +33,15 @@ const components: { title: string; href: string; description: string ; icon:any}
     description: "Details of my professional experience and career milestones.",
     icon:"material-symbols:work-history"
   },
-  {
-    title: "Freelance Work",
-    href: "/freelance",
-    description: "Insights and stories from my freelance work and projects.",
-    icon:"tabler:free-rights"
-  },
+  // {
+  //   title: "Freelance Work",
+  //   href: "/freelance",
+  //   description: "Insights and stories from my freelance work and projects.",
+  //   icon:"tabler:free-rights"
+  // },
   {
     title: "Blogs",
-    href: "/blogs",
+    href: "https://next-blog-website-phi.vercel.app/",
     description: "Articles, tutorials, and insights on various topics.",
     icon:"fa6-solid:blog"
   },
@@ -56,7 +56,7 @@ const components: { title: string; href: string; description: string ; icon:any}
 
 export function NavigationMenus() {
   return (
-    <NavigationMenu className="font-noto ">
+    <NavigationMenu className="font-noto hidden lg:block">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger><Icon icon="material-symbols:person" width="20" height="20" className="mb-1.5 me-1" />About me</NavigationMenuTrigger>

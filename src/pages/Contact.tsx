@@ -63,6 +63,10 @@ const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
     });
   },[]);
   useGSAP(() => {
+    let mm = gsap.matchMedia();
+
+// add a media query. When it matches, the associated function will run
+mm.add("(min-width: 800px)", () => {
     if(Title == "" && Description == "") return;
     gsap.set(".gsap-clip-animation-target", {clipPath: 'circle(1% at 50% 50%)'});
     gsap.to(".gsap-clip-animation-target", {
@@ -82,6 +86,7 @@ const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
       },
       duration: 1,
       clipPath: 'circle(100% at 50% 50%)',
+    });
     });
   });
   // A regex for phone number
@@ -148,31 +153,31 @@ const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
   return (
     <>
       {Title &&
-        <div className='w-full flex flex-col gsap-clip-animation-trigger'>
-          <h1 className="font-lexend font-normal text-7xl w-full text-center">
+        <div className='w-full flex flex-col gsap-clip-animation-trigger lg:mt-20'>
+          <h1 className="font-lexend font-normal text-5xl lg:text-7xl w-full text-center">
             <span id='experience' className="bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 from-white to-blue-800  dark:to-white w-full">
               {Title}
             </span>
             {
-              Description && <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-white to-blue-800 w-full"><br />
+              Description && <span className="text-3xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-white to-blue-800 w-full"><br />
                 {Description}
               </span>
             }
           </h1>
-          <div className="astrodivider self-center w-full pt-6 px-16 scale-150"><div className="astrodividermask"></div></div>
+          <div className="astrodivider self-center w-full pt-6 px-16 lg:scale-150"><div className="astrodividermask"></div></div>
         </div>
       }
-      <div className="flex flex-row justify-center items-center w-full pt-6 pb-12 gsap-clip-animation-target" 
+      <div className="flex flex-row justify-center items-center w-full lg:pt-6 pb-12 gsap-clip-animation-target" 
       // style={{ clipPath: 'circle(1% at 50% 50%)' }}
       >
-        <div className="w-2/5 h-[80vh] opacity-80 rounded-xl shadow-xl translate-x-24 z-10 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 dark:from-slate-500 dark:via-slate-400 dark:to-slate-300">
+        <div className="hidden lg:block w-2/5 h-[80vh] opacity-80 rounded-xl shadow-xl translate-x-24 z-10 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 dark:from-slate-500 dark:via-slate-400 dark:to-slate-300">
         </div>
-        <img src="/images/contactus.svg" className='lazy w-[60vw] h-[60vh] absolute -left-12 z-20' loading='eager' alt="" />
+        <img src="/images/contactus.svg" className='lazy hidden lg:block w-[60vw] h-[60vh] absolute -left-12 z-20' loading='eager' alt="" />
 
-        <img src="/images/contactus.svg" className='lazy w-[50vw] h-[50vh] absolute right-0 -z-20' alt="" />
-        <Card className="shadow-xl border-2 border-gray-300 font-lexend w-3/6 z-20 me-32">
+        <img src="/images/contactus.svg" className='lazy hidden lg:block w-[50vw] h-[50vh] absolute right-0 -z-20' alt="" />
+        <Card className="shadow-xl border-2 border-gray-300 font-lexend lg:w-3/6 pb-6 z-20 lg:me-32">
           <CardHeader>
-            <CardTitle className="flex text-5xl font-lexend bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-slate-200 to-blue-800 w-full">
+            <CardTitle className="flex text-3xl lg:text-5xl  font-lexend bg-clip-text text-transparent bg-gradient-to-t dark:from-slate-500 dark:to-white from-slate-200 to-blue-800 w-full">
               Contact Me
             </CardTitle>
             <CardDescription className=''>

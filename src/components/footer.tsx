@@ -8,11 +8,11 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ }) => {
   return (
-    <div className="max-w-screen-xl mx-auto">
+    <div className="max-w-screen-xl mx-auto ">
       <div className="dark:bg-slate-700 bg-gray-200 text-white text-center h-8 mt-2 pb-6 border-t-8 dark:border-blue-700 border-blue-300"></div>
       {/* <div className="h-20 rounded-2xl bg-gray-700 opacity-20 mx-6 text-white text-center flex items-center justify-center"> */}
       <div className="flex flex-row justify-center items-center py-4 dark:bg-slate-900">
-        <p className="text-8xl basis-1/2 w-full font-pacifico bg-clip-text text-transparent  bg-gradient-to-b from-blue-400 dark:opacity-60 to-blue-200 ">Vivek Kumar</p>
+        <p className="text-4xl md:text-8xl basis-1/2 ms-4 w-full font-pacifico bg-clip-text text-transparent  bg-gradient-to-b from-blue-400 dark:opacity-60 to-blue-200 ">Vivek Kumar</p>
         <div className="basis-1/2 flex flex-col w-full h-full">
 
           <div className="flex flex-row w-full h-full font-lexend justify-end pe-12">
@@ -40,7 +40,7 @@ const Footer: React.FC<FooterProps> = ({ }) => {
           </div>
         </div>
       </div>
-      <p className="absolute text-sm z-20 text-gray-800 dark:text-gray-300 bg-transparent text-center w-full inline-flex justify-center gap-2 py-1">
+      <p className="absolute text-xs md:text-sm z-20 text-gray-800 dark:text-gray-300 bg-transparent text-center w-full inline-flex justify-center gap-2 py-1">
         Last updated Feb/2024&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Vivek Kumar&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Developed with expertise in
         <Icon href='https://developer.mozilla.org/en-US/docs/Web/JavaScript' className='hover:text-yellow-300' icon="simple-icons:javascript" width="20" height="20" />
         <Icon href='https://react.dev/' className='hover:text-blue-300' icon="akar-icons:react-fill" width="20" height="20" />

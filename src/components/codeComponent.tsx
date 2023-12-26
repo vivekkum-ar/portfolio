@@ -205,7 +205,7 @@ export default Joke;
 
     return (
         <>
-            <div className="relative">
+            <div className="relative hidden lg:block">
                 <div className="absolute top-0 z-40">
                     <div className="h-96 w-20 flex trigger-react"></div>
                     <div className="h-96 w-20 flex  trigger-html"></div>
