@@ -29,6 +29,9 @@ gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 import emailjs from '@emailjs/browser';
 import { toast } from "sonner"
+import { useRecoilState } from 'recoil'
+import { loaderStatus } from '@/Recoil/store'
+import Loading from '@/components/modalLoading'
 
 interface ContactProps {
   // Add your prop types here
@@ -37,6 +40,7 @@ interface ContactProps {
 }
 
 const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
+  const [isLoading, setIsLoading] = useRecoilState(loaderStatus);
   // console.log(Title, Description);
   /* ------------------------------------- Initialize EmailJs ------------------------------------- */
   useEffect(() => {
@@ -54,7 +58,7 @@ const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
         // Set the limit rate for the application
         id: 'app',
         // Allow 1 request per 10s = 10000ms
-        throttle: 10000,
+        throttle: 20000,
       },
     });
   },[]);
@@ -105,24 +109,27 @@ const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
   })
   /* ---------------------------------- 3. Define submit handler ---------------------------------- */
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    // console.log(values);
     var templateParams = {
       userEmail: values.email,
       userPhone: values.phone,
       userMessage: values.message
     };
-    if(values.email && values.message) {
+    if(values.email !== "" && values.message !== "") {
+      setIsLoading(true);
       emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, templateParams)
       .then((response) => {
           console.log('SUCCESS!', response.status, response.text);
           // toast(`SUCCESS! - ${"response.status"} - ${"response.text"}`);
           toast("Thank you for contacting me!", 
           { 
-            description: `We have received your request! We will get back to you in < 24Hr.` ,
+            description: `I have received your request! I will get back to you before 24Hr.` ,
             classNames: {toast:"group-[.toaster]:border-green-500 group-[.toaster]:border-2"},
-            // position: 'top-right',         
+            // position: 'top-right',   
+            duration: 10000,      
           });
-          
+          form.reset();
+          setIsLoading(false);
         },
         (error) => {
           // console.log('FAILED...', error);
@@ -130,8 +137,11 @@ const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
           { 
             description: `Error: ${error}` ,
             classNames: {toast:"group-[.toaster]:border-red-500 group-[.toaster]:border-2"},
-            // position: 'top-right',         
+            // position: 'top-right', with time of 10 secs,
+            duration: 10000,   
           });
+          form.reset();
+          setIsLoading(false);
         },);
     }
   }
@@ -231,6 +241,7 @@ const Contact: React.FC<ContactProps> = ({ Title= "", Description= "" }) => {
       </CardFooter> */}
         </Card>
       </div>
+      {isLoading && <Loading></Loading>}
     </>
   )
 }
